@@ -1,5 +1,5 @@
 const fs = require('fs');
-
+const os = require('os');
 
 // ------------------ Write In the File ------------------
 
@@ -81,10 +81,32 @@ const fs = require('fs');
 // Synchronously create a directory named "new_folder"
 //fs.mkdirSync('./new_folder')
 
-fs.mkdirSync('new_folder2/a/b', { recursive: true })
+// fs.mkdirSync('new_folder2/a/b', { recursive: true })
 
 
+// ---------------- Blocking and Non-Blocking ------------------
 
+// Blocking ------------------------------
+// In this Thread Pool Size is byDefault is 4
+// Max? - 8core cpu - 8 thread pool size depend on cpu size 
 
+//console.log(os.cpus().length); // Give Cpu size
+
+// console.log('Start Blocking');
+// const result = fs .readFileSync('./contact.txt', 'utf-8')
+// console.log(result);
+// console.log('End Blocking');
+
+// Non-Blocking ------------------------------
+
+// console.log('Start Non-Blocking');
+// fs.readFile('./contact.txt', 'utf-8', (err, data) => {
+//     if(err){    
+//         console.error('Error reading file:', err);
+//     } else {
+//         console.log(data);
+//     }
+// });
+// console.log('End Non-Blocking');
 
 
