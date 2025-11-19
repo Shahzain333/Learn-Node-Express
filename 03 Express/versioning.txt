@@ -1,0 +1,56 @@
+// Version
+
+// 5.1.0
+
+// 1st part -> 5
+// 2nd part -> 1
+// 3rd part -> 0
+
+// 3rd part (last part) - Minor Fixes (Optional)
+Latest -> 5.1.1
+
+// 2nd part - Recommendation Bug Fix (Security Fix)
+Latest -> 5.2.0
+
+// 3rd part Major Release - Major / Breaking Update
+6
+
+^ Compatible with Version
+
+^ -- Its Mean Lock the Major Release & Install all Recommended and minor Fixes Automatically
+
+^4.18.2 | 4.18.2 -> < 5.0.0 |
+
+^4.17.9
+4.18.1
+4.18.2
+4.18.3
+4.18.4
+.
+.
+.
+.
+.
+.
+.
+5.0.0
+
+5.1.0 // Now It not doing any update because you can lock it
+
+
+~ Approximately equivalent to Version | Install all minor fixes Automatically
+
+~ 4.18.1  // Its mean recommended version bh ni change krna justminor fixes waal krna hai
+~ 4.18.2
+~ 4.18.3
+~ 4.18.4
+~ 4.18.5
+
+4.19.1 // Noo muja nh krna yeh
+
+
+
+
+
+
+
