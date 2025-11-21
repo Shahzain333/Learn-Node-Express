@@ -55,6 +55,9 @@ app.get('/api/users', (req,res) => {
     
     //console.log("Users Requested...", req.myusername);
 
+    // Always Add X to the custom headers to avoid conflict with standard headers
+    res.setHeader("X-MyName", "Shahzain khan")  // Custom Header
+    //console.log("Headers Set...", req.headers);
     return res.json(users)
 })
 
