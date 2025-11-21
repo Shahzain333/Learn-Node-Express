@@ -8,10 +8,38 @@ const PORT = 3000
 // Middleware to parse JSON bodies - Plugin
 app.use(express.urlencoded({ extended: false })); // For parsing application/x-www-form-urlencoded
 
+// Custom Middleware to log request info
+app.use((req, res, next) => {
+    //console.log(`Hello from Middleware1.....`);
+    //return res.json({ message: 'Hello from Middleware1.....' });
+    //req.myusername = 'JohnDoe.dev'; // Custom Property
+    //next();
+
+    fs.appendFile('log.txt', `\n${Date.now()} - ${req.ip} -${req.method} - ${req.path}\n`, (err,data) => {
+        if(err) {
+            console.log("Error logging request", err);
+        }
+        next();
+    }); 
+})
+
+app.use((req, res, next) => {
+    //console.log(`Hello from Middleware2.....`);
+    //console.log(`Hello from Middleware2.....`, req.myusername);
+    
+    // DB Query or Authentications can be done here
+    // Credit Card Info 
+    // req.creaditCardNumber = '1234-5678-9876-5432';
+     
+    //return res.end("Hey");
+    next();
+})
+
 // ----------------- Routes here -----------------
 
 // This Return all users in the Html format
 app.get('/users', (req,res) => {
+
     //return res.json(users)
     const html = `
         <ul>
@@ -24,6 +52,9 @@ app.get('/users', (req,res) => {
 // --------------- REST API Endpoint to return all users in JSON format -------------
 
 app.get('/api/users', (req,res) => {
+    
+    //console.log("Users Requested...", req.myusername);
+
     return res.json(users)
 })
 

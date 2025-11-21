@@ -1,0 +1,50 @@
+1763638141567 - GET - /api/users
+1763638195277 - GET - /api/users/1001
+1763638245633 - POST - /api/users
+1763638333142 - POST - /api/users
+1763638343945 - GET - /api/users
+1763638424369 - POST - /api/users
+
+1763638533694 - DELETE - /api/users/1002
+
+1763638538326 - DELETE - /api/users/1003
+
+1763638542248 - DELETE - /api/users/1004
+
+1763638558058 - GET - /api/users/1004
+
+1763638565061 - GET - /api/users/1002
+
+1763638569094 - GET - /api/users/1001
+
+1763638573783 - GET - /api/users/1005
+
+1763638579606 - GET - /api/users/1006
+
+1763638583409 - GET - /api/users/1005
+
+1763638652529 - DELETE - /api/users/1005
+
+1763638659772 - DELETE - /api/users/1005
+
+1763638676654 - GET - /api/users/1001
+
+1763638681712 - GET - /api/users/1002
+
+1763638685278 - GET - /api/users/1001
+
+1763641126628 - POST - /api/users/1001
+
+1763641152885 - POST - /api/users/1001
+
+1763641202080 - POST - /api/users/
+
+1763641243414 - GET - /api/users/
+
+1763641309992 - GET - /api/users/
+
+1763641337770 - ::1 -GET - /api/users/
+
+1763719274576 - ::1 -GET - /api/users/
+
+1763719345769 - ::1 -GET - /api/users/
