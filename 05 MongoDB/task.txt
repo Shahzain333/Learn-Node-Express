@@ -1,0 +1,20 @@
+REST API - JSON DATA
+
+GET /users - HTML Document Render
+
+GET /api/users - List all users JSON - Done    // Api is lya use ki ta ky JSON Data bhjy 
+                                               // otherwise html render kry ga
+
+// Dynamic Path Parameters
+GET /api/users/:id    // : show the dynamic its mean its a variable
+
+GET /api/users/1 - Get the user with ID 1 - Done
+GET /api/users/2 - Get the user with ID 2 - Done
+
+POST /api/users - Create new user - Done
+
+PATCH /api/users/1 - Edit the user with ID 1 - Done
+
+DELETE /api/users/1 - Delete the user with ID 1 - Done
+
+

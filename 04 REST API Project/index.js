@@ -97,16 +97,20 @@ app.get('/api/users', (req,res) => {
 app.post('/api/users', (req, res) => {
     // TODO Create New User
     const body = req.body; // Jo Bhi Frontend sy data recieve hota hai wo yahan ayega body pr
+
+    if(!body || !body.first_name || !body.last_name || !body.email || !body.gender || !body.Job_title) {
+        return  res.status(400).json({ status: 'Failed', message: `All Fields are required fields` });
+    }
     
     //console.log("Body", body);
     
-    users.push({id: users.length + 1, ...body }); // Adding new user to the users array
+    users.push({ id: users.length + 1, ...body }); // Adding new user to the users array
 
     fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err, data) => {
         if(err) {
             console.log("Error writing file", err);
         }
-        return res.json({ status: 'Success...', id: users.length })
+        return res.status(201).json({ status: 'Success...', id: users.length })
     })
 
 })
@@ -114,11 +118,9 @@ app.post('/api/users', (req, res) => {
 app.route('/api/users/:id').get((req,res) => {
 
     const id = Number(req.params.id);  
-    const user = users.find((user) => user.id === id)
-
     // Check if user exists
-    const userExisting = users.some(user => user.id === id);
-    if(!userExisting){
+    const user = users.find((user) => user.id === id)
+    if(!user){
         return res.status(404).json({ status: `No user found with the id of ${id}` });
     }
     

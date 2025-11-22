@@ -60,3 +60,63 @@
 1763719997181 - ::1 -GET - /api/users/
 
 1763720017385 - ::1 -GET - /api/users/
+
+1763721969828 - ::1 -GET - /api/users/
+
+1763722086092 - ::1 -POST - /api/users/
+
+1763722148038 - ::1 -GET - /api/users/1002
+
+1763722152112 - ::1 -GET - /api/users/1003
+
+1763722158774 - ::1 -DELETE - /api/users/1003
+
+1763722163493 - ::1 -DELETE - /api/users/1002
+
+1763722167089 - ::1 -DELETE - /api/users/1002
+
+1763722171572 - ::1 -DELETE - /api/users/1001
+
+1763722180785 - ::1 -GET - /api/users/1001
+
+1763722184710 - ::1 -GET - /api/users/1000
+
+1763722195897 - ::1 -POST - /api/users/
+
+1763722310350 - ::1 -GET - /api/users/
+
+1763722579585 - ::1 -DELETE - /api/users/1001
+
+1763722596389 - ::1 -DELETE - /api/users/1001
+
+1763722602034 - ::1 -POST - /api/users/
+
+1763722789509 - ::1 -DELETE - /api/users/1001
+
+1763722797126 - ::1 -POST - /api/users/
+
+1763722862089 - ::1 -POST - /api/users/
+
+1763723051937 - ::1 -POST - /api/users/
+
+1763723071856 - ::1 -POST - /api/users/
+
+1763723078314 - ::1 -POST - /api/users/
+
+1763723450251 - ::1 -GET - /api/users/1005
+
+1763723558609 - ::1 -GET - /api/users/
+
+1763723571777 - ::1 -GET - /api/users/
+
+1763723580374 - ::1 -GET - /api/users/1005
+
+1763723611389 - ::1 -GET - /api/users/1005
+
+1763723616143 - ::1 -GET - /api/users/1002
+
+1763723618865 - ::1 -GET - /api/users/100
+
+1763723621119 - ::1 -GET - /api/users/1003
+
+1763723623814 - ::1 -GET - /api/users/1001
