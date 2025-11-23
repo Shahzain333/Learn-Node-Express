@@ -18,7 +18,8 @@ async function handleGenerateNewShortUrl(req, res) {
         visitedHistory: [],
     })
 
-    return res.status(201).json({ shortId: shortID });
+    return res.status(201).render('home', { id: shortID });
+    //return res.status(201).json({ shortId: shortID });
 
 }
 
@@ -51,8 +52,14 @@ async function handleGetUrlAnalytics(req, res) {
 
 }
 
+async function handleGetAllUrls(req, res){
+    const allUrls = await URL.find({});
+    return res.render('home', { urls: allUrls });
+}
+
 module.exports = {
     handleGenerateNewShortUrl,
     handleGetUrlInfo,
-    handleGetUrlAnalytics
+    handleGetUrlAnalytics,
+    handleGetAllUrls
 };

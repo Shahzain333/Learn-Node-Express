@@ -4,7 +4,7 @@ const router = express.Router();
 const { 
     handleGenerateNewShortUrl, 
     handleGetUrlInfo,
-    handleGetUrlAnalytics
+    handleGetUrlAnalytics,
 } = require('../controller/url');
 
 // Route to create a short URL
