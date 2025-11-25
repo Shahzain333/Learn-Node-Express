@@ -24,9 +24,14 @@ async function handleUserSignin(req,res) {
         })
     }
 
-    const sessionId = uuidv4();
-    setUser(sessionId, user)
-    res.cookie("uid", sessionId)
+    // Maintain state
+    //const sessionId = uuidv4();
+    //setUser(sessionId, user)
+    //res.cookie("uid", sessionId)
+
+    // Now Maintain tokens (stateless)
+    const token = setUser(user)
+    res.cookie("uid", token)
 
     return res.redirect('/')
 }
