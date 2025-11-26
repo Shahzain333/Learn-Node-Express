@@ -31,7 +31,8 @@ async function handleUserSignin(req,res) {
 
     // Now Maintain tokens (stateless)
     const token = setUser(user)
-    res.cookie("uid", token)
+    res.cookie("token", token)
+    //res.json({ token })
 
     return res.redirect('/')
 }
