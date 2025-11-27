@@ -1,1 +1,7 @@
 09 Discord Bot/.env
+.env
+.env.local
+.env.production
+node_modules/
+*.log
+.DS_Store
