@@ -1,4 +1,5 @@
 const { Client, GatewayIntentBits } = require('discord.js')
+require('dotenv').config()
 
 const client = new Client({ 
     intents: [
@@ -27,6 +28,6 @@ client.on('interactionCreate', (interaction) => {
     interaction.reply("Pong!")
 })
 
-
-client.login('MTQ0MzE1NDk0NjY4NTAxNDA5Nw.G7H8tz.206IcGdl3CEiG0Gq0DnOPGWZDRsx-XHiFY1zSo')
+const token = process.env.DISCORD_BOT_TOKEN
+client.login(token)
 

@@ -1,4 +1,5 @@
 const { REST, Routes } = require('discord.js')
+require('dotenv').config()
 
 const commands = [
     {
@@ -9,13 +10,13 @@ const commands = [
     }
 ]
 
-const TOKEN = 'MTQ0MzE1NDk0NjY4NTAxNDA5Nw.G7H8tz.206IcGdl3CEiG0Gq0DnOPGWZDRsx-XHiFY1zSo'
+const token = process.env.DISCORD_BOT_TOKEN
 
-const rest = new REST({ version: '10' }).setToken(TOKEN);
+const rest = new REST({ version: '10' }).setToken(token);
 
 
 (async () => {
-    const CLIENT_ID = '1443154946685014097'
+    const CLIENT_ID = process.env.CLIENT_ID
     try {
 
         console.log('Started refreshing application (/) commands.');
