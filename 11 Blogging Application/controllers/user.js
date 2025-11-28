@@ -3,18 +3,27 @@ const User = require('../models/user')
 async function handleUserLogin(req,res) {
 
     const { email, password } = req.body;
+    
+    try {
+        //const user = await User.matchPassword(email, password)
+        const token = await User.matchPasswordAndGenerateToken(email, password)
 
-    const user = await User.matchPassword(email, password)
+        //console.log("user :", user)
+        //console.log("token :", token)
 
-    //console.log("user :", user)
+        // if(!user) {
+        //     return res.render('signin', {
+        //         error: "Invalid Username or Password"
+        //     })
+        // }
 
-    if(!user) {
+        return res.cookie('token', token).redirect('/')
+
+    } catch (error) {
         return res.render('signin', {
-            error: "Invalid Username or Password"
+            error: "Incorrect Email or Password"
         })
     }
-
-    return res.redirect('/')
 
 }
 
@@ -28,7 +37,12 @@ async function handleCreateNewUser(req,res) {
     return res.redirect('signin')
 }
 
+async function handleUserLogout(res,res) {
+    res.clearCookie('token').redirect('/')
+}
+
 module.exports = {
     handleUserLogin,
-    handleCreateNewUser
+    handleCreateNewUser,
+    handleUserLogout
 }

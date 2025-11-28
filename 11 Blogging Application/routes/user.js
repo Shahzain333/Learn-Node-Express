@@ -1,7 +1,8 @@
 const express = require('express')
 const {
     handleUserLogin,
-    handleCreateNewUser
+    handleCreateNewUser, 
+    handleUserLogout
 } = require('../controllers/user')
 
 const router = express()
@@ -16,5 +17,6 @@ router.get('/signup', (req,res) => {
 
 router.post('/signup', handleCreateNewUser)
 router.post('/signin', handleUserLogin)
+router.get('/logout', handleUserLogout)
 
 module.exports = router
