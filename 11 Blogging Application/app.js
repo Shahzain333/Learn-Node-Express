@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
@@ -10,10 +12,10 @@ const blogRoutes = require('./routes/blog')
 const connectToDatabase = require('./connect')
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 // Connection to the database
-connectToDatabase('mongodb://localhost:27017/blogify');
+connectToDatabase(process.env.MONGO_URL);
 
 // Set View Engine
 app.set("view engine", 'ejs')
