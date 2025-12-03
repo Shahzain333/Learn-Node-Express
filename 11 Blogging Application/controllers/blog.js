@@ -1,4 +1,5 @@
 const Blog = require('../models/blog')
+const Comment = require('../models/comment')
 
 async function handlecreateBlog(req, res) {
     // console.log(req.body)
@@ -19,6 +20,27 @@ async function handlecreateBlog(req, res) {
     return res.redirect(`/blog/${blog._id}`)
 }
 
+async function handlegetBlog(req,res) {
+    const blog = await Blog.findById(req.params.id).populate('createdBy')
+    const comments = await Comment.find({ blogId: req.params.id }).populate('createdBy')
+    return res.render('blog', {
+        user: req.user,
+        blog: blog,
+        comment: comments
+    })
+}
+
+async function handleCreateComment(req, res){
+    await Comment.create({
+        content: req.body.content,
+        blogId: req.params.blogId,
+        createdBy: req.user._id 
+    })
+    return res.redirect(`/blog/${req.params.blogId}`)
+}
+
 module.exports = {
-    handlecreateBlog
+    handlecreateBlog,
+    handlegetBlog,
+    handleCreateComment
 }

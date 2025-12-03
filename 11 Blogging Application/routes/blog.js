@@ -3,7 +3,9 @@ const multer = require('multer')
 const path = require('path')
 
 const {
-    handlecreateBlog
+    handlecreateBlog,
+    handlegetBlog,
+    handleCreateComment
 } = require('../controllers/blog')
 
 const router = express()
@@ -28,5 +30,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 router.post('/', upload.single('coverImage'), handlecreateBlog)
+
+router.get('/:id', handlegetBlog)
+
+router.post('/comment/:blogId', handleCreateComment)
 
 module.exports = router
