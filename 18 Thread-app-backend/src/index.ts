@@ -1,7 +1,7 @@
 import express from 'express'
 import { ApolloServer } from '@apollo/server';
-import { expressMiddleware } from '@as-integrations/express5'
-import cors from 'cors';
+import { expressMiddleware } from '@apollo/server/express4';
+import { prismaClient } from './lib/db.js';
 
 async function init() {
     
@@ -13,15 +13,35 @@ async function init() {
     // Create Graphql Server
     const gqlServer = new ApolloServer({
         typeDefs: `
-           type Query {
+            type Query {
                 hello: String
                 say(name: String): String
-           }
+            }
+            type Mutation {
+                createUser(firstName: String!, lastName: String!, email: String!, password: String!): Boolean
+            }
         `, // Schema
         resolvers: {
             Query: {
                 hello: () => `Hey there, I'm a graphql server`,
-                say: (_, {name}: {name: String}) => `Hey ${name}, How are you ?`
+                say: (_, {name}: {name: string}) => `Hey ${name}, How are you ?`
+            },
+            Mutation: {
+                createUser: async(_, { firstName, lastName, email, password }: 
+                { firstName: string; lastName: string; email: string; password: string }) => {
+
+                    await prismaClient.user.create({
+                        data: {
+                            email,
+                            firstName,
+                            lastName,
+                            password,
+                            salt: 'random_salt',
+                        }
+                    })
+                    return true;
+
+                }
             }
         } // Resolvers
     })
@@ -35,7 +55,7 @@ async function init() {
 
     app.use(
         '/graphql',
-        cors<cors.CorsRequest>(),
+        // cors<cors.CorsRequest>(),
         express.json(),
         expressMiddleware(gqlServer),
     );
