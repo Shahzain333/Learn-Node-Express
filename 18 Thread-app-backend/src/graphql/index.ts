@@ -5,16 +5,22 @@ async function createAplloGraphqlServer() {
     // Create Graphql Server
     const gqlServer = new ApolloServer({
         typeDefs: `
+            
+            ${User.typeDefs}
+
             type Query {
                ${User.queries}
+            
             }
             type Mutation {
               ${User.mutations}
             }
+        
         `, // Schema
         resolvers: {
             Query: {
-                ...User.resolvers.queries
+                ...User.resolvers.queries,
+                
             },
             Mutation: {
                 ...User.resolvers.mutations
